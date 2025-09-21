@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saranya Portfolio | Data Scientist</title>
+    <meta name="description" content="Professional portfolio showcasing my skills, experience, projects, and achievements">
+    <meta name="keywords" content="portfolio, web developer, resume, projects, skills">
+    <meta name="author" content="Saranya P">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100%' height='100%' rx='50' fill='%2300FFFF' /><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='50' font-weight='bold' fill='%23000'>SP</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2563eb",
+                        secondary: "#1e40af",
+                        accent: "#3b82f6",
+                        dark: "#1f2937",
+                        light: "#f8fafc"
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .section-hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .section-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .active-section {
+            color: #2563eb !important;
+            font-weight: 600;
+        }
+        
+        .progress-bar {
+            transition: width 1s ease-in-out;
+        }
+
+        /* --- START: Added Dark Theme Styles --- */
+
+        /* 1. Global Styles: Black background, new font, and light text */
+        body {
+            background-color: #000000 !important;
+            color: #cccccc !important; /* Light gray for main text */
+            font-family: 'Times New Roman', Times, serif !important;
+        }
+
+        /* 2. Technical Text Colors: Bright cyan for headings and links */
+        h1, h2, h3, h4, h5, h6, .text-primary {
+            color: #00FFFF !important; /* Bright Cyan for a technical feel */
+        }
+
+        a.nav-link, a:hover {
+            color: #00FFFF !important;
+        }
+        
+        .active-section {
+             color: #00FFFF !important;
+             font-weight: 800;
+             text-decoration: underline;
+        }
+
+        /* 3. Justify Content: Apply to paragraphs for a clean look */
+        p {
+            text-align: justify;
+        }
+        /* Add this new rule for the labels */
+p.font-semibold {
+    color: #00FFFF !important; /* Bright Cyan */
+}
+
+        /* 4. Section & Element Overrides: Adjusting elements for the dark theme */
+        /* Make sections that were white or gray slightly off-black */
+        .bg-white, .bg-gray-50, nav {
+            background-color: #1a1a1a !important; 
+        }
+
+        /* Make text that was dark or gray light */
+        .text-dark, .text-gray-700, .text-gray-600, .text-gray-400, .text-gray-500 {
+            color: #cccccc !important;
+        }
+
+        /* Update progress bars and other specific elements */
+        .progress-bar {
+            background-color: #00FFFF !important;
+        }
+
+        .bg-primary {
+            background-color: #00FFFF !important;
+        }
+        .text-white {
+            color: #000000 !important; /* Make text on cyan buttons black */
+        }
+        
+        /* Override for footer text color */
+        footer .text-gray-400 {
+            color: #cccccc !important;
+        }
+        
+        footer a {
+           color: #cccccc !important;
+        }
+
+        footer a:hover {
+           color: #00FFFF !important;
+        }
+
+
+        /* Invert button styles */
+        a.bg-white.text-primary {
+            background-color: #00FFFF !important;
+            color: #000000 !important; /* Black text */
+        }
+        a.border-2.border-white {
+            border-color: #00FFFF !important;
+            color: #00FFFF !important;
+        }
+        a.border-2.border-white:hover {
+            background-color: #00FFFF !important;
+            color: #000000 !important; /* Black text on hover */
+        }
+        
+        /* Fix for contact form inputs */
+        input, textarea {
+            background-color: #333333 !important;
+            color: #ffffff !important;
+            border-color: #555555 !important;
+        }
+
+        /* --- END: Added Dark Theme Styles --- */
+    </style>
+</head>
+<body class="min-h-screen bg-light font-sans">
+    <nav class="fixed top-0 w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-primary"> SP folio</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-primary transition-colors">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-primary transition-colors">About</a>
+                    <a href="#resume" class="nav-link text-gray-700 hover:text-primary transition-colors">Resume</a>
+                    <a href="#experience" class="nav-link text-gray-700 hover:text-primary transition-colors">Experience</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-primary transition-colors">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-primary transition-colors">Projects</a>
+                    <a href="#certifications" class="nav-link text-gray-700 hover:text-primary transition-colors">Certifications</a>
+                    <a href="#achievements" class="nav-link text-gray-700 hover:text-primary transition-colors">Achievements</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-primary transition-colors">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#home" class="block nav-link text-gray-700 hover:text-primary">Home</a>
+                <a href="#about" class="block nav-link text-gray-700 hover:text-primary">About</a>
+                <a href="#resume" class="block nav-link text-gray-700 hover:text-primary">Resume</a>
+                <a href="#experience" class="block nav-link text-gray-700 hover:text-primary">Experience</a>
+                <a href="#skills" class="block nav-link text-gray-700 hover:text-primary">Skills</a>
+                <a href="#projects" class="block nav-link text-gray-700 hover:text-primary">Projects</a>
+                <a href="#certifications" class="block nav-link text-gray-700 hover:text-primary">Certifications</a>
+                <a href="#achievements" class="block nav-link text-gray-700 hover:text-primary">Achievements</a>
+                <a href="#contact" class="block nav-link text-gray-700 hover:text-primary">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-screen flex items-center justify-center">
+    <div class="container mx-auto px-6 text-center animate-fade-in">
+        <div class="max-w-4xl mx-auto">
+            <img src="D:\SP Portfolio\.qodo\home image.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto mb-8 border-4 border-white">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">Saranya P</h1>
+            <h2 class="text-2xl md:text-3xl mb-8">Artificial Intelligence & Data Science</h2>
+            <p class="text-xl mb-12 opacity-90">Transforming complex data into clear insights through hands-on experience with Power BI and data analytics.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#projects" class="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">View My Work</a>
+                <a href="#contact" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition-colors">Contact Me</a>
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+        <a href="#about" class="animate-bounce" style="color: #00FFFF !important;">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </a>
+    </div>
+</section>
+
+    <section id="about" class="py-20 bg-white section-hidden">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16 text-dark">About Me</h2>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <img src="D:\SP Portfolio\.qodo\About image.png" alt="About Me" class="rounded-lg shadow-lg w-full">
+            </div>
+            <div>
+                <h3 class="text-2xl font-semibold mb-6 text-primary">Who I Am</h3>
+                <p class="text-gray-700 mb-6 leading-relaxed">
+                    A meticulous and driven Artificial Intelligence and Data Science student with hands-on experience as a Power BI Intern developing interactive dashboards and reports. I am proficient in Python, SQL, and data visualization tools, with a proven record of success in competitive hackathons.
+                </p>
+                <p class="text-gray-700 mb-8 leading-relaxed">
+                    I am seeking to apply my technical skills and collaborative mindset to contribute to a challenging data science or analytics role where I can continue to learn and grow.
+                </p>
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <p class="font-semibold text-dark">Name:</p>
+                        <p class="text-gray-700">Saranya P </p>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-dark">Email:</p>
+                        <p class="text-gray-700">prabhusaranya07@gmail.com </p>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-dark">Degree:</p>
+                        <p class="text-gray-700">B.Tech AI & Data Science </p>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-dark">Location:</p>
+                        <p class="text-gray-700">Coimbatore, Tamil Nadu </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="resume" class="py-20 bg-gray-50 section-hidden">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16 text-dark">Resume</h2>
+        <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+            <div class="text-center mb-12">
+                <h3 class="text-2xl font-semibold text-primary mb-4">Saranya P</h3>
+                <p class="text-gray-700 mb-6 text-center">Artificial Intelligence & Data Science</p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-4">
+                    <span class="text-gray-600"><i class="fas fa-phone mr-2"></i>+91 9677899663</span>
+                    <span class="text-gray-600"><i class="fas fa-envelope mr-2"></i>prabhusaranya07@gmail.com</span>
+                </div>
+            </div>
+            
+            <div class="mb-12">
+                <h4 class="text-xl font-semibold text-dark mb-6 border-b-2 border-primary pb-2">Education</h4>
+                <div class="mb-6">
+                    <h5 class="text-lg font-semibold text-primary">B.Tech in Artificial Intelligence And Data Science</h5>
+                    <p class="text-gray-600">HINDUSTHAN INSTITUTE OF TECHNOLOGY, Coimbatore | Present</p>
+                    <p class="text-gray-700 mt-2">Current CGPA: 8.8</p>
+                </div>
+                <div class="mb-6">
+                    <h5 class="text-lg font-semibold text-primary">HSC (12th Board)</h5>
+                    <p class="text-gray-600">STANES ANGLO INDIAN HR.SEC SCHOOL, Coimbatore | Completed - 2022</p>
+                    <p class="text-gray-700 mt-2">Percentage: 86.16%</p>
+                </div>
+                 <div>
+                    <h5 class="text-lg font-semibold text-primary">SSLC (10th Board)</h5>
+                    <p class="text-gray-600">STANES ANGLO INDIAN HR.SEC SCHOOL, Coimbatore | Completed - 2020</p>
+                    <p class="text-gray-700 mt-2">Percentage: 79.60%</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="SARANYA RESUME.pdf" target="_blank" rel="noopener noreferrer" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-secondary transition-colors">
+                    <i class="fas fa-eye mr-2"></i>View Resume
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="experience" class="py-20 bg-white section-hidden">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16 text-dark">Work Experience</h2>
+        <div class="max-w-4xl mx-auto">
+            <div class="relative">
+                <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-primary"></div>
+                
+                <div class="mb-12 relative">
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+                            <h3 class="text-xl font-semibold text-primary">Power BI Intern</h3>
+                            <p class="text-gray-600">Cognifyz Technology</p>
+                            <p class="text-gray-500">Jul 2024 - Aug 2024</p>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 md:translate-x-0 w-4 h-4 bg-primary rounded-full"></div>
+                        <div class="md:w-1/2 md:pl-12 mt-4 md:mt-0">
+                            <p class="text-gray-700">
+                                Developed interactive dashboards in Power BI to visualize business metrics. Utilized Power Query for data cleaning and transformation and applied best practices to create clear, user-friendly, and actionable reports.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+<section id="skills" class="py-20 bg-gray-50 section-hidden">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16 text-dark">Skills & Technologies</h2>
+        <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            
+            <div>
+                <h3 class="text-2xl font-semibold mb-8 text-primary">Technical Skills</h3>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold text-dark">Python</span>
+                            <span class="text-primary">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full progress-bar" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold text-dark">SQL</span>
+                            <span class="text-primary">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full progress-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold text-dark">Data Visualization (Power BI & Tableau)</span>
+                            <span class="text-primary">92%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full progress-bar" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold text-dark">HTML & CSS</span>
+                            <span class="text-primary">80%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full progress-bar" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl font-semibold mb-8 text-primary">Soft Skills</h3>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold text-dark">Leadership & Mentorship</span>
+                            <span class="text-primary">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full progress-bar" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold text-dark">Collaboration & Teamwork</span>
+                            <span class="text-primary">95%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full progress-bar" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold text-dark">Meticulous Nature (Attention to Detail)</span>
+                            <span class="text-primary">88%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full progress-bar" style="width: 88%"></div>
+                        </div>
+                    </div>
+                     <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold text-dark">Problem Solving</span>
+                            <span class="text-primary">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full progress-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="projects" class="py-20 bg-white section-hidden">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16 text-dark">Featured Projects</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow relative">
+                <a href="https://github.com/saranyapsmv/ECommerce-Website/tree/master" target="_blank" rel="noopener noreferrer" class="absolute top-4 right-4 bg-gray-800 p-2 rounded-full text-white hover:bg-black transition-colors">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <img src="D:\SP Portfolio\.qodo\E-Commerce.png" alt="E-commerce Website" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-primary mb-2">E-Commerce Website</h3>
+                    <p class="text-gray-700 mb-4">A responsive front-end for an e-commerce platform demonstrating modern web development skills.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">HTML</span>
+                        <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">CSS</span>
+                        <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow relative">
+                <a href="https://github.com/saranyapsmv/AI-Summarizer/tree/master" target="_blank" rel="noopener noreferrer" class="absolute top-4 right-4 bg-gray-800 p-2 rounded-full text-white hover:bg-black transition-colors">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <img src="D:\SP Portfolio\.qodo\AISummarizer.jpeg" alt="AI Text Summarizer" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-primary mb-2">AI Text Summarizer</h3>
+                    <p class="text-gray-700 mb-4">An intelligent tool that leverages NLP in Python to automatically generate concise summaries from long documents.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">Natural Language Processing</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow relative">
+                <a href="https://github.com/saranyapsmv/Digit-Recognizer" target="_blank" rel="noopener noreferrer" class="absolute top-4 right-4 bg-gray-800 p-2 rounded-full text-white hover:bg-black transition-colors">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <img src="D:\SP Portfolio\.qodo\DigitRecognizer.png" alt="Handwritten Digit Recognizer" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-primary mb-2">Handwritten Digit Recognizer</h3>
+                    <p class="text-gray-700 mb-4">A deep learning model built with a CNN to accurately classify handwritten digits from image data.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">CNN</span>
+                        <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">Deep Learning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <section id="certifications" class="py-20 bg-gray-50 section-hidden">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16 text-dark">Certifications</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                <div class="h-16 flex items-center justify-center mx-auto mb-4">
+                    <img src="D:\SP Portfolio\.qodo\UI Path logo.png" alt="UI Path Logo" class="h-10">
+                </div>
+                <h3 class="text-xl font-semibold text-primary mb-2">Automation Developer Associate</h3>
+                <p class="text-gray-600 mb-4">UI Path</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                <div class="h-16 flex items-center justify-center mx-auto mb-4">
+                     <img src="D:\SP Portfolio\.qodo\IS logo.png" alt="Infosys Logo" class="h-10">
+                </div>
+                <h3 class="text-xl font-semibold text-primary mb-2">Artificial Intelligence Foundation</h3>
+                <p class="text-gray-600 mb-4">Infosys Springboard</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                <div class="h-16 flex items-center justify-center mx-auto mb-4">
+                     <img src="D:\SP Portfolio\.qodo\IS logo.png" alt="Infosys Logo" class="h-10">
+                </div>
+                <h3 class="text-xl font-semibold text-primary mb-2">Machine Learning Foundation</h3>
+                <p class="text-gray-600 mb-4">Infosys Springboard</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                <div class="h-16 flex items-center justify-center mx-auto mb-4">
+                    <img src="D:\SP Portfolio\.qodo\MongoDB logo.jpeg" alt="MongoDB Logo" class="h-12">
+                </div>
+                <h3 class="text-xl font-semibold text-primary mb-2">Java including CRUD operations</h3>
+                <p class="text-gray-600 mb-4">Mongo DB</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <section id="achievements" class="py-20 bg-white section-hidden">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16 text-dark">Achievements</h2>
+        <div class="max-w-4xl mx-auto">
+            <ul class="space-y-6">
+                
+                <li class="flex items-start">
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                        <i class="fas fa-laptop-code text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary mb-1">Smart India Hackathon Participant</h3>
+                        <p class="text-gray-700">Participated in the Smart India Hackathon, contributing to the development of an AI-based interactive chatbot.</p>
+                    </div>
+                </li>
+
+                <li class="flex items-start">
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                        <i class="fas fa-laptop-code text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary mb-1">PPG College 24-Hour Hackathon</h3>
+                        <p class="text-gray-700">Developed a Social Media Sentimental Analysis project during this competitive 24-hour event.</p>
+                    </div>
+                </li>
+                
+                <li class="flex items-start">
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                        <i class="fas fa-laptop-code text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary mb-1">Uyir Hackathon Participant</h3>
+                        <p class="text-gray-700">Contributed to a road safety project, building a Smart Warning System for Negotiating U-Turn Interactions.</p>
+                    </div>
+                </li>
+
+                <li class="flex items-start">
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                        <i class="fas fa-trophy text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary mb-1">Overall Athletic Champion</h3>
+                        <p class="text-gray-700">Won the overall championship in a multi-event athletic competition, showcasing all-round performance and stamina. </p>
+                    </div>
+                </li>
+
+                <li class="flex items-start">
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                        <i class="fas fa-award text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary mb-1">First Place Winner</h3>
+                        <p class="text-gray-700">Secured 1st place in multiple disciplines including Football, Basketball, and Debate competitions. </p>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</section>
+
+    <section id="contact" class="py-20 bg-gray-50 section-hidden">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16 text-dark">Get In Touch</h2>
+        <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <div>
+                <h3 class="text-2xl font-semibold mb-6 text-primary">Contact Information</h3>
+                <div class="space-y-6">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-map-marker-alt text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-dark">Location</p>
+                            <p class="text-gray-700">Coimbatore, Tamil Nadu</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-envelope text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-dark">Email</p>
+                            <p class="text-gray-700">prabhusaranya07@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-phone text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-dark">Phone</p>
+                            <p class="text-gray-700">+91 9677899663</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <h4 class="text-xl font-semibold mb-4 text-primary">Follow Me</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/saranyapsmv" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-secondary transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl font-semibold mb-6 text-primary">Send Me a Message</h3>
+                <form action="https://formspree.io/f/xgvnwoap" method="POST" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Your Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                        <input type="text" id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-secondary transition-colors">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-6">
+        <div class="text-center">
+            <h3 class="text-2xl font-bold mb-4">Saranya P</h3>
+            <p class="text-gray-400 mb-8">AI & Data Science</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://github.com/saranyapsmv" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+            </div>
+            <p class="text-gray-400">© 2025 Saranya P. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+    <script>
+    // Navigation and smooth scrolling
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links, ignoring placeholder links
+        document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Active navigation link highlighting
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        function updateActiveNavLink() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active-section');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active-section');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateActiveNavLink);
+        updateActiveNavLink();
+        
+        // Intersection Observer for section animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('section-visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.section-hidden').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Animate progress bars when skills section is in view
+        const skillsSection = document.getElementById('skills');
+        const progressBars = document.querySelectorAll('.progress-bar');
+        
+        const skillsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    progressBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 100);
+                    });
+                    skillsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        skillsObserver.observe(skillsSection);
+        
+        // The conflicting form submission code has been removed.
+        // Formspree will handle the submission now.
+        
+    });
+</script>
+</body>
+</html>
